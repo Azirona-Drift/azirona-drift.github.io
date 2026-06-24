@@ -1648,7 +1648,6 @@
     <ul class="nav-list" id="navList" role="list">
       <li><a href="#blog">Blog</a></li>
       <li><a href="#work">Work</a></li>
-      <li><a href="#tools">Tools</a></li>
       <li><a href="#newsletter">Newsletter</a></li>
       <li><a href="mailto:alekmiller@pm.me">Contact</a></li>
     </ul>
@@ -1768,6 +1767,7 @@
         <button class="filt on" data-f="all">All</button>
         <button class="filt" data-f="books">Books</button>
         <button class="filt" data-f="games">Games</button>
+        <button class="filt" data-f="tools">Tools</button>
         <button class="filt" data-f="comics">Comics</button>
         <button class="filt" data-f="alek">Alek</button>
         <button class="filt" data-f="juleah">Juleah</button>
@@ -1789,55 +1789,13 @@
 
   <div class="sw-stripe" aria-hidden="true"></div>
 
-  <!-- ====== TOOLS & GAMES ====== -->
-  <section id="tools" class="section" aria-labelledby="tools-heading">
-    <h2 class="sec-title" id="tools-heading">Tools &amp; Games</h2>
-    <div class="sec-rule"></div>
-
-    <div class="tg-grid">
-      <div>
-        <h3 class="tg-col-title">Tools &amp; Utilities</h3>
-        <div id="toolsList">
-          <div class="skel" style="height:70px;margin-bottom:1rem"></div>
-          <div class="skel" style="height:70px"></div>
-        </div>
-      </div>
-      <div>
-        <h3 class="tg-col-title">Games</h3>
-        <a href="/games/hephaestus.html" class="tg-item" aria-label="Play Hephaestus">
-          <div class="tg-icon game" aria-hidden="true">⚒</div>
-          <div>
-            <div class="tg-name">Hephaestus</div>
-            <div class="tg-desc">You are a blacksmith, forging your legacy over 50 years. A browser strategy game by
-              Alek Miller.</div>
-          </div>
-        </a>
-        <a href="/games/kirbo/kirbo.html" class="tg-item" aria-label="Play Kirbo">
-          <div class="tg-icon game" aria-hidden="true">◉</div>
-          <div>
-            <div class="tg-name">Kirbo</div>
-            <div class="tg-desc">An adventure in a strange little world. Built with WebAssembly.</div>
-          </div>
-        </a>
-        <a href="/orbitalsalvagegame/" class="tg-item" aria-label="Play Orbital Salvage">
-          <div class="tg-icon game" aria-hidden="true">🛸</div>
-          <div>
-            <div class="tg-name">Orbital Salvage</div>
-            <div class="tg-desc">A browser game set in the depths of space. Salvage, survive, and escape.</div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
   <!-- ====== NEWSLETTER ====== -->
   <section id="newsletter" class="nl-section" aria-labelledby="nl-heading">
     <div class="nl-inner">
       <p class="sec-eyebrow">Stay Connected</p>
       <h2 class="sec-title" id="nl-heading">The Desert Dispatch</h2>
       <div class="sec-rule center"></div>
-      <p class="nl-text">New essays, stories, and project announcements — straight to your inbox. No noise, just signal
-        from the Millers.</p>
+      <p class="nl-text">New essays, stories, and project announcements straight to your inbox.</p>
       <form class="nl-form" action="https://buttondown.com/api/emails/embed-subscribe/azirona" method="post"
         target="popupwindow" onsubmit="window.open('https://buttondown.com/azirona','popupwindow')"
         aria-label="Newsletter signup">
@@ -1859,7 +1817,6 @@
         <ul class="footer-nav">
           <li><a href="#blog">Blog</a></li>
           <li><a href="#work">Work</a></li>
-          <li><a href="#tools">Tools</a></li>
           <li><a href="/blog/feed.xml">RSS</a></li>
           <li><a href="https://azirona.gumroad.com/l/Witnesses" target="_blank" rel="noopener">Gumroad</a></li>
           <li><a href="mailto:alekmiller@pm.me">Contact</a></li>
@@ -2065,6 +2022,7 @@
             const activeStatuses = ['active', 'work-in-progress', 'wip', 'planning'];
             const bookTypes = ['book', 'art book', "children's book"];
             const gameTypes = ['game', 'web game'];
+            const toolTypes = ['tool'];
             const comicTypes = ['comic'];
             document.querySelectorAll('.proj-card').forEach(c => {
               if (f === 'all') { c.style.display = ''; return; }
@@ -2073,6 +2031,7 @@
               if (f === 'active') { c.style.display = activeStatuses.includes(c.dataset.s) ? '' : 'none'; return; }
               if (f === 'books') { c.style.display = bookTypes.includes(c.dataset.t) ? '' : 'none'; return; }
               if (f === 'games') { c.style.display = gameTypes.includes(c.dataset.t) ? '' : 'none'; return; }
+              if (f === 'tools') { c.style.display = toolTypes.includes(c.dataset.t) ? '' : 'none'; return; }
               if (f === 'comics') { c.style.display = comicTypes.includes(c.dataset.t) ? '' : 'none'; return; }
               c.style.display = (c.dataset.s === f) ? '' : 'none';
             });
@@ -2081,30 +2040,10 @@
       } catch (e) { console.warn('Projects load failed:', e); }
     }
 
-    /* ====== TOOLS ====== */
-    async function loadTools() {
-      try {
-        const r = await fetch('/tools.json');
-        const d = await r.json();
-        const tools = d.tools || [];
-        document.getElementById('toolsList').innerHTML = tools.map(t => `
-      <a href="${t.url}" class="tg-item" target="_blank" rel="noopener"
-         aria-label="${t.title}" itemscope itemtype="https://schema.org/SoftwareApplication">
-        <div class="tg-icon tool" aria-hidden="true">◈</div>
-        <div>
-          <div class="tg-name" itemprop="name">${t.title}</div>
-          ${t.description ? `<div class="tg-desc" itemprop="description">${t.description}</div>` : ''}
-        </div>
-      </a>
-    `).join('');
-      } catch (e) { console.warn('Tools load failed:', e); }
-    }
-
     /* ====== INIT ====== */
     document.getElementById('yr').textContent = new Date().getFullYear();
     loadBlog();
     loadProjects();
-    loadTools();
 
     /* ====== PROJECT PANEL ====== */
     const overlay = document.getElementById('panelOverlay');
@@ -2132,7 +2071,7 @@
       if (p.backgroundImage) {
         imgEl.innerHTML = `<img src="${p.backgroundImage}" alt="${p.title}" class="panel-img">`;
       } else {
-        const icons = { book: '📖', game: '🎲', comic: '🎨', 'web game': '🕹️', 'art book': '🖼️', "children's book": '📚' };
+        const icons = { book: '📖', game: '🎲', comic: '🎨', 'web game': '🕹️', 'art book': '🖼️', "children's book": '📚', tool: '◈' };
         imgEl.innerHTML = `<div class="panel-img-placeholder">${icons[p.type] || '✦'}</div>`;
       }
 

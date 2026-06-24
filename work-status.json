@@ -49,6 +49,29 @@
       ]
     },
     {
+      "id": "maze-template",
+      "title": "Maze Template",
+      "author": "Juleah Miller",
+      "status": "completed",
+      "type": "tool",
+      "description": "Create lane grids to draw over for designing labyrinths and mazes.",
+      "extraNotes": "",
+      "backgroundImage": "",
+      "completedDate": "2026-03-30",
+      "estimatedCompletion": "",
+      "platform": "Web",
+      "webFile": "maze-template/",
+      "gameType": "",
+      "progress": "",
+      "collaboration": false,
+      "externalLinks": [
+        {
+          "label": "Use Tool",
+          "url": "https://azirona.com/maze-template/"
+        }
+      ]
+    },
+    {
       "id": "orbital-salvage",
       "title": "Orbital Salvage",
       "author": "Juleah Miller",
@@ -64,6 +87,52 @@
       "gameType": "Clicker / Space Builder",
       "progress": "",
       "collaboration": false
+    },
+    {
+      "id": "mosaic-crochet",
+      "title": "Mosaic Crochet Pattern Editor",
+      "author": "Juleah Miller",
+      "status": "work-in-progress",
+      "type": "tool",
+      "description": "Pattern editor for designing mosaic crochet projects.",
+      "extraNotes": "",
+      "backgroundImage": "",
+      "completedDate": "2026-01-26",
+      "estimatedCompletion": "",
+      "platform": "Web",
+      "webFile": "",
+      "gameType": "",
+      "progress": "",
+      "collaboration": false,
+      "externalLinks": [
+        {
+          "label": "Use Tool",
+          "url": "https://mombot.nekoweb.org/mosaic/"
+        }
+      ]
+    },
+    {
+      "id": "pixel-printout",
+      "title": "Pixel Printout",
+      "author": "Juleah Miller",
+      "status": "completed",
+      "type": "tool",
+      "description": "Customizable pixel grids (8×8 to 128×128) that automatically scale to fit your paper size and print at 300 DPI for high-quality hand-coloring.",
+      "extraNotes": "Analog pixel art printout tool",
+      "backgroundImage": "",
+      "completedDate": "2025-10-28",
+      "estimatedCompletion": "",
+      "platform": "Web",
+      "webFile": "pixel-printout",
+      "gameType": "",
+      "progress": "",
+      "collaboration": false,
+      "externalLinks": [
+        {
+          "label": "Use Tool",
+          "url": "https://azirona.com/pixel-printout"
+        }
+      ]
     },
     {
       "id": "mfybrm7sm2s8g97mnr",
@@ -247,80 +316,6 @@
       ]
     },
     {
-      "id": "bee-game",
-      "title": "Pollen Haters",
-      "author": "Juleah Miller",
-      "status": "work-in-progress",
-      "type": "web game",
-      "description": "Bee-type survivor game alpha. In dev. Currently very playable. Adding new content all the time. Currently filled with AI-gen assets while I work on art style.\n\nBest game ever! - my son",
-      "extraNotes": "Will swap to my own art when done. The bee is mine though.",
-      "backgroundImage": "",
-      "completedDate": "",
-      "estimatedCompletion": "Summer 2026",
-      "platform": "Web",
-      "webFile": "",
-      "gameType": "Survivors-type",
-      "progress": "",
-      "collaboration": false,
-      "externalLinks": [
-        {
-          "label": "Play Now",
-          "url": "https://azirona.com/pollinhaters/"
-        }
-      ]
-    },
-    {
-      "id": "mgebkrw3efo6dl65fqb",
-      "title": "Great and Small",
-      "author": "Alek Miller",
-      "status": "work-in-progress",
-      "type": "book",
-      "description": "Bible stories from the viewpoint of the animals.",
-      "extraNotes": "",
-      "backgroundImage": "",
-      "completedDate": "",
-      "estimatedCompletion": "Summer 2026",
-      "platform": "",
-      "webFile": "",
-      "gameType": "",
-      "progress": "",
-      "collaboration": false
-    },
-    {
-      "id": "mfyd8a7fmdvn2dhy3jq",
-      "title": "Kings of Israel",
-      "author": "Alek Miller",
-      "status": "work-in-progress",
-      "type": "game",
-      "description": "Can you do better than the Kings of Israel? Tabletop boardgame in progress",
-      "extraNotes": "",
-      "backgroundImage": "",
-      "completedDate": "",
-      "estimatedCompletion": "",
-      "platform": "",
-      "webFile": "",
-      "gameType": "",
-      "progress": "35%",
-      "collaboration": false
-    },
-    {
-      "id": "mfxfj2rltja5ysol58l",
-      "title": "Triumph Tactics",
-      "author": "Alek Miller",
-      "status": "work-in-progress",
-      "type": "game",
-      "description": "Tabletop hex based battles",
-      "extraNotes": "Art and assets by Juleah",
-      "backgroundImage": "",
-      "completedDate": "",
-      "estimatedCompletion": "",
-      "platform": "Boardgame",
-      "webFile": "",
-      "gameType": "",
-      "progress": "75%",
-      "collaboration": true
-    },
-    {
       "id": "mfxfwqxci4hkvl46gk",
       "title": "Round Down",
       "author": "Alek Miller",
@@ -344,71 +339,76 @@
       ]
     },
     {
-      "id": "pixel-printout",
-      "title": "Pixel Printout",
-      "author": "Juleah Miller",
-      "status": "completed",
-      "type": "tool",
-      "description": "Customizable pixel grids (8×8 to 128×128) that automatically scale to fit your paper size and print at 300 DPI for high-quality hand-coloring.",
-      "extraNotes": "Analog pixel art printout tool",
-      "backgroundImage": "",
-      "completedDate": "",
-      "estimatedCompletion": "",
-      "platform": "Web",
-      "webFile": "pixel-printout",
-      "gameType": "",
-      "progress": "",
-      "collaboration": false,
-      "externalLinks": [
-        {
-          "label": "Use Tool",
-          "url": "https://azirona.com/pixel-printout"
-        }
-      ]
-    },
-    {
-      "id": "maze-template",
-      "title": "Maze Template",
-      "author": "Juleah Miller",
-      "status": "completed",
-      "type": "tool",
-      "description": "Create lane grids to draw over for designing labyrinths and mazes.",
-      "extraNotes": "",
-      "backgroundImage": "",
-      "completedDate": "",
-      "estimatedCompletion": "",
-      "platform": "Web",
-      "webFile": "maze-template/",
-      "gameType": "",
-      "progress": "",
-      "collaboration": false,
-      "externalLinks": [
-        {
-          "label": "Use Tool",
-          "url": "https://azirona.com/maze-template/"
-        }
-      ]
-    },
-    {
-      "id": "mosaic-crochet",
-      "title": "Mosaic Crochet Pattern Editor",
-      "author": "Juleah Miller",
+      "id": "mfxfj2rltja5ysol58l",
+      "title": "Triumph Tactics",
+      "author": "Alek Miller",
       "status": "work-in-progress",
-      "type": "tool",
-      "description": "Pattern editor for designing mosaic crochet projects.",
+      "type": "game",
+      "description": "Tabletop hex based battles",
+      "extraNotes": "Art and assets by Juleah",
+      "backgroundImage": "",
+      "completedDate": "",
+      "estimatedCompletion": "",
+      "platform": "Boardgame",
+      "webFile": "",
+      "gameType": "",
+      "progress": "75%",
+      "collaboration": true
+    },
+    {
+      "id": "mfyd8a7fmdvn2dhy3jq",
+      "title": "Kings of Israel",
+      "author": "Alek Miller",
+      "status": "work-in-progress",
+      "type": "game",
+      "description": "Can you do better than the Kings of Israel? Tabletop boardgame in progress",
       "extraNotes": "",
       "backgroundImage": "",
       "completedDate": "",
       "estimatedCompletion": "",
-      "platform": "Web",
+      "platform": "",
+      "webFile": "",
+      "gameType": "",
+      "progress": "35%",
+      "collaboration": false
+    },
+    {
+      "id": "mgebkrw3efo6dl65fqb",
+      "title": "Great and Small",
+      "author": "Alek Miller",
+      "status": "work-in-progress",
+      "type": "book",
+      "description": "Bible stories from the viewpoint of the animals.",
+      "extraNotes": "",
+      "backgroundImage": "",
+      "completedDate": "",
+      "estimatedCompletion": "Summer 2026",
+      "platform": "",
       "webFile": "",
       "gameType": "",
       "progress": "",
+      "collaboration": false
+    },
+    {
+      "id": "bee-game",
+      "title": "Pollen Haters",
+      "author": "Juleah Miller",
+      "status": "work-in-progress",
+      "type": "web game",
+      "description": "Bee-type survivor game alpha. In dev. Currently very playable. Adding new content all the time. Currently filled with AI-gen assets while I work on art style.\n\nBest game ever! - my son",
+      "extraNotes": "Will swap to my own art when done. The bee is mine though.",
+      "backgroundImage": "",
+      "completedDate": "",
+      "estimatedCompletion": "Summer 2026",
+      "platform": "Web",
+      "webFile": "",
+      "gameType": "Survivors-type",
+      "progress": "",
       "collaboration": false,
       "externalLinks": [
         {
-          "label": "Use Tool",
-          "url": "https://mombot.nekoweb.org/mosaic/"
+          "label": "Play Now",
+          "url": "https://azirona.com/pollinhaters/"
         }
       ]
     }

@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-24T00:00:00.000Z",
-  "totalProjects": 18,
+  "lastUpdated": "2026-09-27T00:00:00.000Z",
+  "totalProjects": 21,
   "projects": [
     {
       "id": "quak",
@@ -167,6 +167,7 @@
       "gameType": "",
       "progress": "",
       "collaboration": true,
+      "featured": true,
       "externalLinks": [
         {
           "label": "Buy Hardcover",
@@ -177,6 +178,25 @@
           "url": "https://azirona.gumroad.com/l/Witnesses"
         }
       ]
+    },
+    {
+      "id": "leavening",
+      "title": "Leavening",
+      "author": "Alek Miller",
+      "status": "work-in-progress",
+      "type": "book",
+      "description": "Some passages of Scripture feel glossed over, making one ask, \"But wait, is there more?\" Everyone remembers Samson; what about Tola? Who were Jannes and Jombres? How tense were the relations between John the Baptist, and the secluded Essenes? Did Paul really fight beasts in Ephesus? \"Leavening\" takes these short verses or references and expands them, kneading them out in stories that aim to provoke questions that inspire us to return to and reread the Bible.",
+      "extraNotes": "",
+      "backgroundImage": "",
+      "completedDate": "",
+      "estimatedCompletion": "October 2026",
+      "platform": "",
+      "webFile": "",
+      "gameType": "",
+      "progress": "",
+      "collaboration": false,
+      "featured": true,
+      "externalLinks": []
     },
     {
       "id": "mfxg8j8pzpdgovmjazq",

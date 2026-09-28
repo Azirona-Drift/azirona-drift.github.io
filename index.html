@@ -135,22 +135,21 @@
 
     /* ====== NAV ====== */
     .nav {
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
       z-index: 200;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 1.1rem 2.5rem;
-      transition: background 0.35s, box-shadow 0.35s;
+      background: var(--night);
+      border-bottom: 2px solid var(--terra);
     }
 
-    .nav.scrolled {
-      background: rgba(9, 15, 28, 0.93);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
     }
 
     .nav-logo {
@@ -161,13 +160,23 @@
       color: #fff;
       text-decoration: none;
       text-transform: uppercase;
-      text-shadow: 0 0 30px rgba(240, 152, 40, 0.5);
+    }
+
+    .nav-tagline {
+      font-family: 'Cormorant Garant', serif;
+      font-style: italic;
+      font-size: 0.8rem;
+      color: rgba(243, 233, 210, 0.6);
     }
 
     .nav-list {
       display: flex;
       gap: 2.5rem;
       list-style: none;
+    }
+
+    .nav-cta-mobile {
+      display: none;
     }
 
     .nav-list a {
@@ -184,7 +193,8 @@
       color: var(--horizon-glow);
     }
 
-    .nav-cta {
+    .nav-cta,
+    .nav-cta-btn {
       font-family: 'Oswald', sans-serif;
       font-size: 0.75rem;
       letter-spacing: 0.15em;
@@ -195,9 +205,11 @@
       padding: 0.5rem 1.2rem;
       text-decoration: none;
       transition: background 0.2s;
+      cursor: pointer;
     }
 
-    .nav-cta:hover {
+    .nav-cta:hover,
+    .nav-cta-btn:hover {
       background: var(--terra-light);
     }
 
@@ -208,272 +220,6 @@
       color: white;
       font-size: 1.4rem;
       cursor: pointer;
-    }
-
-    /* ====== HERO ====== */
-    .hero {
-      position: relative;
-      height: 100vh;
-      min-height: 620px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      text-align: center;
-    }
-
-    /* Sky gradient */
-    .hero-sky {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom,
-          #040810 0%,
-          #0A1428 12%,
-          #12103A 24%,
-          #2E1050 36%,
-          #5C1A48 48%,
-          #8C2820 60%,
-          #C84010 72%,
-          #E87020 83%,
-          #F0A030 92%,
-          #F8D090 100%);
-    }
-
-    /* Stars layer */
-    #stars {
-      position: absolute;
-      inset: 0;
-      height: 55%;
-      pointer-events: none;
-    }
-
-    .star {
-      position: absolute;
-      border-radius: 50%;
-      background: #fff;
-      animation: twinkle 3s ease-in-out infinite;
-    }
-
-    @keyframes twinkle {
-
-      0%,
-      100% {
-        opacity: 0.8;
-        transform: scale(1);
-      }
-
-      50% {
-        opacity: 0.1;
-        transform: scale(0.5);
-      }
-    }
-
-    /* Desert Landscape SVG */
-    .hero-land {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      height: 42%;
-      display: block;
-    }
-
-    /* Hero content */
-    .hero-body {
-      position: relative;
-      z-index: 10;
-      padding: 0 1.5rem;
-      max-width: 760px;
-    }
-
-    .hero-eyebrow {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 300;
-      font-size: 0.75rem;
-      letter-spacing: 0.45em;
-      text-transform: uppercase;
-      color: rgba(248, 208, 144, 0.75);
-      margin-bottom: 0.9rem;
-    }
-
-    .hero-title {
-      font-family: 'Cormorant Garant', serif;
-      font-weight: 700;
-      font-size: clamp(3.5rem, 12vw, 9rem);
-      line-height: 0.88;
-      color: #fff;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      text-shadow: 0 0 80px rgba(200, 64, 16, 0.5), 0 6px 40px rgba(0, 0, 0, 0.6);
-      margin-bottom: 1.2rem;
-    }
-
-    .hero-subtitle {
-      font-family: 'Cormorant Garant', serif;
-      font-style: italic;
-      font-size: clamp(1rem, 2.5vw, 1.4rem);
-      color: rgba(248, 220, 160, 0.88);
-      line-height: 1.6;
-      margin-bottom: 2.5rem;
-    }
-
-    .hero-btns {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-fill {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.85rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 0.8rem 2rem;
-      background: var(--terra);
-      color: #fff;
-      text-decoration: none;
-      border: 2px solid var(--terra);
-      transition: all 0.22s;
-      cursor: pointer;
-    }
-
-    .btn-fill:hover {
-      background: var(--terra-light);
-      border-color: var(--terra-light);
-    }
-
-    .btn-ghost {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.85rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 0.8rem 2rem;
-      background: transparent;
-      color: rgba(255, 255, 255, 0.85);
-      text-decoration: none;
-      border: 2px solid rgba(255, 255, 255, 0.35);
-      transition: all 0.22s;
-    }
-
-    .btn-ghost:hover {
-      border-color: rgba(255, 255, 255, 0.9);
-      color: #fff;
-    }
-
-    .hero-scroll {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.4rem;
-      color: rgba(255, 255, 255, 0.4);
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.6rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      animation: bob 2.2s ease-in-out infinite;
-    }
-
-    @keyframes bob {
-
-      0%,
-      100% {
-        transform: translateX(-50%) translateY(0);
-      }
-
-      50% {
-        transform: translateX(-50%) translateY(8px);
-      }
-    }
-
-    /* ====== FEATURED BOOK BAND ====== */
-    .book-band {
-      background: var(--mesa);
-      padding: 3.5rem 2rem;
-    }
-
-    .book-band-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: center;
-      gap: 3rem;
-    }
-
-    .book-label {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.6rem;
-    }
-
-    .book-title {
-      font-family: 'Cormorant Garant', serif;
-      font-weight: 700;
-      font-size: clamp(1.4rem, 3vw, 2.2rem);
-      color: var(--adobe);
-      line-height: 1.15;
-      margin-bottom: 0.6rem;
-    }
-
-    .book-author {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(243, 233, 210, 0.45);
-      margin-bottom: 1rem;
-    }
-
-    .book-desc {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: rgba(243, 233, 210, 0.7);
-      max-width: 560px;
-    }
-
-    .book-cover-img {
-      width: 110px;
-      height: 165px;
-      object-fit: cover;
-      object-position: center top;
-      flex-shrink: 0;
-      display: block;
-    }
-
-    .book-cta-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 1rem;
-    }
-
-    .book-price {
-      font-family: 'Cormorant Garant', serif;
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: var(--gold);
-      line-height: 1;
-    }
-
-    .book-price span {
-      display: block;
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.6rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: rgba(243, 233, 210, 0.4);
-      font-weight: 300;
-      margin-top: 0.25rem;
     }
 
     /* ====== SW STRIPE ====== */
@@ -528,28 +274,42 @@
     }
 
     /* ====== BLOG ====== */
-    .blog-layout {
-      display: grid;
-      grid-template-columns: 1.9fr 1fr;
-      gap: 2rem;
+    .post-list {
+      list-style: none;
     }
 
-    .post-card-featured {
-      background: var(--parchment);
-      border-left: 3px solid var(--terra);
-      padding: 2.5rem;
-      transition: border-color 0.22s;
+    .post-list-item {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid rgba(56, 32, 16, 0.12);
     }
 
-    .post-card-featured:hover {
-      border-color: var(--tq-light);
+    .post-list-item:first-child {
+      padding-top: 0;
     }
 
-    .post-meta {
+    .post-list-title {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--mesa);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .post-list-title:hover {
+      color: var(--terra);
+    }
+
+    .post-list-meta {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
+      gap: 0.6rem;
+      flex-shrink: 0;
     }
 
     .badge {
@@ -586,30 +346,7 @@
       font-size: 0.7rem;
       letter-spacing: 0.12em;
       color: rgba(56, 32, 16, 0.4);
-    }
-
-    .post-title-lg {
-      font-family: 'Cormorant Garant', serif;
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--mesa);
-      line-height: 1.2;
-      margin-bottom: 0.75rem;
-      text-decoration: none;
-      display: block;
-      transition: color 0.2s;
-    }
-
-    .post-title-lg:hover {
-      color: var(--terra);
-    }
-
-    .post-excerpt {
-      font-size: 1rem;
-      line-height: 1.75;
-      color: var(--charcoal);
-      opacity: 0.82;
-      margin-bottom: 1.5rem;
+      white-space: nowrap;
     }
 
     .read-link {
@@ -627,47 +364,6 @@
     .read-link:hover {
       color: var(--terra-light);
       border-color: var(--terra-light);
-    }
-
-    .blog-side {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .post-card-mini {
-      background: var(--parchment);
-      padding: 1.4rem;
-      border: 1px solid rgba(56, 32, 16, 0.09);
-      transition: border-color 0.22s, transform 0.22s;
-    }
-
-    .post-card-mini:hover {
-      border-color: var(--terra);
-      transform: translateX(3px);
-    }
-
-    .post-title-sm {
-      font-family: 'Cormorant Garant', serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--mesa);
-      margin-bottom: 0.4rem;
-      text-decoration: none;
-      display: block;
-      line-height: 1.3;
-      transition: color 0.2s;
-    }
-
-    .post-title-sm:hover {
-      color: var(--terra);
-    }
-
-    .post-snippet {
-      font-size: 0.875rem;
-      line-height: 1.6;
-      color: var(--charcoal);
-      opacity: 0.7;
     }
 
     .blog-footer {
@@ -693,30 +389,21 @@
       content: '';
       flex: 1;
       height: 1px;
-      background: linear-gradient(to right, transparent, rgba(56, 32, 16, 0.12), transparent);
+      background: rgba(56, 32, 16, 0.15);
     }
 
     /* ====== PROJECTS ====== */
     .projects-wrap {
-      background: var(--charcoal);
+      background: var(--adobe);
     }
 
     .projects-inner {
       max-width: 1100px;
       margin: 0 auto;
       padding: 5rem 2rem;
-    }
-
-    .projects-inner .sec-eyebrow {
-      color: var(--gold);
-    }
-
-    .projects-inner .sec-title {
-      color: var(--adobe);
-    }
-
-    .projects-inner .sec-rule {
-      background: var(--gold);
+      -webkit-font-smoothing: none;
+      -moz-osx-font-smoothing: unset;
+      text-rendering: optimizeSpeed;
     }
 
     .filter-row {
@@ -733,8 +420,8 @@
       text-transform: uppercase;
       padding: 0.35rem 0.9rem;
       background: transparent;
-      border: 1px solid rgba(243, 233, 210, 0.18);
-      color: rgba(243, 233, 210, 0.45);
+      border: 1px solid rgba(56, 32, 16, 0.15);
+      color: rgba(56, 32, 16, 0.45);
       cursor: pointer;
       transition: all 0.2s;
     }
@@ -752,7 +439,8 @@
     }
 
     .proj-card {
-      border: 1px solid rgba(243, 233, 210, 0.1);
+      background: var(--parchment);
+      border: 1px solid rgba(56, 32, 16, 0.1);
       padding: 1.6rem;
       position: relative;
       overflow: hidden;
@@ -767,12 +455,12 @@
       right: 0;
       height: 0;
       background: var(--terra);
-      opacity: 0.1;
+      opacity: 0.08;
       transition: height 0.3s;
     }
 
     .proj-card:hover {
-      border-color: rgba(243, 233, 210, 0.3);
+      border-color: var(--terra);
       transform: translateY(-3px);
     }
 
@@ -788,6 +476,21 @@
       padding: 0.18rem 0.55rem;
       display: inline-block;
       margin-bottom: 0.9rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .proj-featured-tag {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 0.18rem 0.55rem;
+      display: inline-block;
+      margin-bottom: 0.9rem;
+      margin-left: 0.5rem;
       position: relative;
       z-index: 1;
     }
@@ -808,15 +511,15 @@
     }
 
     .st-paused {
-      background: rgba(243, 233, 210, 0.1);
-      color: rgba(243, 233, 210, 0.4);
+      background: rgba(56, 32, 16, 0.08);
+      color: rgba(56, 32, 16, 0.45);
     }
 
     .proj-name {
       font-family: 'Cormorant Garant', serif;
       font-size: 1.2rem;
       font-weight: 700;
-      color: var(--adobe);
+      color: var(--mesa);
       line-height: 1.25;
       margin-bottom: 0.3rem;
       position: relative;
@@ -828,7 +531,7 @@
       font-size: 0.62rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: rgba(243, 233, 210, 0.3);
+      color: rgba(56, 32, 16, 0.4);
       margin-bottom: 0.75rem;
       position: relative;
       z-index: 1;
@@ -839,16 +542,8 @@
       font-size: 0.62rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: rgba(243, 233, 210, 0.28);
+      color: rgba(56, 32, 16, 0.35);
       margin-bottom: 0.6rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .proj-desc {
-      font-size: 0.9rem;
-      line-height: 1.65;
-      color: rgba(243, 233, 210, 0.6);
       position: relative;
       z-index: 1;
     }
@@ -867,14 +562,14 @@
       font-size: 0.65rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--tq-light);
+      color: var(--terra);
       text-decoration: none;
       position: relative;
       z-index: 1;
     }
 
     .proj-link:hover {
-      color: #fff;
+      color: var(--terra-light);
     }
 
     /* ====== HIDDEN LINKS ====== */
@@ -1107,23 +802,20 @@
 
     /* ====== SKELETON ====== */
     .skel {
-      background: linear-gradient(90deg,
-          rgba(56, 32, 16, 0.06) 0%,
-          rgba(56, 32, 16, 0.13) 50%,
-          rgba(56, 32, 16, 0.06) 100%);
-      background-size: 200% 100%;
-      animation: shimmer 1.6s ease-in-out infinite;
-      border-radius: 2px;
+      background: rgba(56, 32, 16, 0.1);
+      animation: pulse 1.4s ease-in-out infinite;
       display: block;
     }
 
-    @keyframes shimmer {
-      0% {
-        background-position: -200% 0;
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
       }
 
-      100% {
-        background-position: 200% 0;
+      50% {
+        opacity: 0.4;
       }
     }
 
@@ -1140,25 +832,15 @@
     }
 
     /* ====== RESPONSIVE ====== */
-    @media (max-width: 900px) {
-      .book-band-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .book-cover-placeholder {
-        display: none;
-      }
-
-      .book-cta-wrap {
-        align-items: flex-start;
-      }
-    }
-
     @media (max-width: 768px) {
 
       .nav-list,
       .nav-cta {
         display: none;
+      }
+
+      .nav-list.open .nav-cta-mobile {
+        display: block;
       }
 
       .nav-list.open {
@@ -1179,10 +861,6 @@
 
       .nav-toggle {
         display: block;
-      }
-
-      .blog-layout {
-        grid-template-columns: 1fr;
       }
 
       .tg-grid {
@@ -1209,197 +887,62 @@
       }
     }
 
-    /* ====== PROJECT PANEL ====== */
-    .panel-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(9, 15, 28, 0.7);
-      z-index: 5000;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s;
-    }
-
-    .panel-overlay.open {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .panel-drawer {
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: min(520px, 100vw);
-      background: var(--charcoal);
-      z-index: 5001;
-      overflow-y: auto;
-      transform: translateX(100%);
-      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .panel-drawer.open {
-      transform: translateX(0);
-    }
-
-    .panel-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      padding: 1.75rem 1.75rem 0;
-      gap: 1rem;
-    }
-
-    .panel-close {
-      background: none;
-      border: 1px solid rgba(243, 233, 210, 0.2);
-      color: rgba(243, 233, 210, 0.6);
-      cursor: pointer;
-      width: 36px;
-      height: 36px;
-      font-size: 1.2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      transition: all 0.2s;
-    }
-
-    .panel-close:hover {
-      border-color: var(--terra);
-      color: var(--terra);
-    }
-
-    .panel-img {
-      width: 100%;
-      max-height: 260px;
-      object-fit: cover;
-      display: block;
-      margin-top: 1.5rem;
-    }
-
-    .panel-img-placeholder {
-      height: 120px;
-      margin: 1.5rem 1.75rem 0;
-      background: linear-gradient(135deg, var(--terra-dark), var(--terra));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      color: rgba(255, 255, 255, 0.2);
-    }
-
-    .panel-body {
-      padding: 1.5rem 1.75rem 2.5rem;
-      flex: 1;
-    }
-
-    .panel-status {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 0.18rem 0.55rem;
-      display: inline-block;
-      margin-bottom: 0.75rem;
-    }
-
-    .panel-title {
-      font-family: 'Cormorant Garant', serif;
-      font-weight: 700;
-      font-size: 1.6rem;
-      color: var(--adobe);
-      line-height: 1.2;
-      margin-bottom: 0.35rem;
-    }
-
-    .panel-author {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(243, 233, 210, 0.35);
-      margin-bottom: 0.4rem;
-    }
-
-    .panel-type {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.3rem;
-    }
-
-    .panel-date {
+    /* ====== PROJECT EXPAND (inline accordion) ====== */
+    .proj-toggle {
       font-family: 'Oswald', sans-serif;
       font-size: 0.65rem;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(243, 233, 210, 0.3);
-      margin-bottom: 1.25rem;
+      color: var(--terra);
+      background: none;
+      border: none;
+      padding: 0;
+      margin-top: 0.75rem;
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
     }
 
-    .panel-rule {
-      height: 1px;
-      background: rgba(243, 233, 210, 0.1);
-      margin-bottom: 1.25rem;
+    .proj-toggle:hover {
+      color: var(--terra-light);
     }
 
-    .panel-desc {
-      font-size: 0.97rem;
-      line-height: 1.75;
-      color: rgba(243, 233, 210, 0.75);
+    .proj-expand {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.3s ease, opacity 0.25s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .proj-card.expanded .proj-expand {
+      max-height: 800px;
+      opacity: 1;
+      margin-top: 0.9rem;
+    }
+
+    .proj-full-desc {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--charcoal);
+      opacity: 0.82;
       white-space: pre-line;
-      margin-bottom: 1.25rem;
+      border-top: 1px solid rgba(56, 32, 16, 0.12);
+      padding-top: 0.9rem;
+      margin-bottom: 0.9rem;
     }
 
-    .panel-notes {
-      font-size: 0.85rem;
+    .proj-notes {
+      font-size: 0.82rem;
       line-height: 1.6;
-      color: rgba(243, 233, 210, 0.4);
+      color: rgba(56, 32, 16, 0.55);
       font-style: italic;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.9rem;
     }
 
-    .panel-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .panel-btn {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      padding: 0.6rem 1.2rem;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-
-    .panel-btn-fill {
-      background: var(--terra);
-      color: #fff;
-      border: 2px solid var(--terra);
-    }
-
-    .panel-btn-fill:hover {
-      background: var(--terra-light);
-      border-color: var(--terra-light);
-    }
-
-    .panel-btn-ghost {
-      background: transparent;
-      color: var(--tq-light);
-      border: 2px solid var(--tq-light);
-    }
-
-    .panel-btn-ghost:hover {
-      background: var(--tq-light);
-      color: #fff;
+    .proj-expand .proj-links {
+      margin-top: 0;
     }
 
     /* ====== BOOK SHOP PANEL ====== */
@@ -1411,7 +954,6 @@
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s;
-      backdrop-filter: blur(6px);
     }
     .bshop-overlay.open {
       opacity: 1;
@@ -1419,21 +961,25 @@
     }
     .bshop-drawer {
       position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: min(540px, 100vw);
+      top: 50%;
+      left: 50%;
+      width: min(480px, calc(100vw - 2rem));
+      max-height: 85vh;
       background: var(--mesa);
       z-index: 6001;
       overflow-y: auto;
-      transform: translateX(100%);
-      transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translate(-50%, -50%) scale(0.95);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.25s ease, opacity 0.2s ease;
       display: flex;
       flex-direction: column;
-      border-left: 3px solid var(--terra);
+      border: 3px solid var(--terra);
     }
     .bshop-drawer.open {
-      transform: translateX(0);
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+      pointer-events: all;
     }
     .bshop-top {
       position: relative;
@@ -1444,7 +990,7 @@
     .bshop-cover-img {
       width: 100%;
       display: block;
-      max-height: 340px;
+      max-height: 200px;
       object-fit: cover;
       object-position: center 20%;
     }
@@ -1580,9 +1126,6 @@
       background: var(--terra-light);
       border-color: var(--terra-light);
     }
-    .nav-cta {
-      cursor: pointer;
-    }
   </style>
 </head>
 
@@ -1628,133 +1171,26 @@
     </div>
   </aside>
 
-  <!-- Project Panel -->
-  <div class="panel-overlay" id="panelOverlay" aria-hidden="true"></div>
-  <aside class="panel-drawer" id="panelDrawer" role="dialog" aria-modal="true" aria-label="Project details">
-    <div class="panel-header">
-      <div id="panelHeaderMeta"></div>
-      <button class="panel-close" id="panelClose" aria-label="Close panel">✕</button>
-    </div>
-    <div id="panelImage"></div>
-    <div class="panel-body" id="panelBody"></div>
-  </aside>
-
   <!-- Scroll progress -->
   <div id="scrollBar" role="progressbar" aria-hidden="true"></div>
 
   <!-- ====== NAV ====== -->
   <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
-    <a href="/" class="nav-logo" aria-label="Azirona home">The Azirona Drift</a>
+    <div class="nav-brand">
+      <a href="/" class="nav-logo" aria-label="Azirona home">The Azirona Drift</a>
+      <p class="nav-tagline">a <a href="https://boccbo.cc" class="hidden-link">mom</a>/<a
+          href="https://azirona.com/dad" class="hidden-link">dad</a> pact to make games, comics &amp; books</p>
+    </div>
     <ul class="nav-list" id="navList" role="list">
       <li><a href="#blog">Blog</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#newsletter">Newsletter</a></li>
       <li><a href="mailto:alekmiller@pm.me">Contact</a></li>
+      <li class="nav-cta-mobile"><button class="nav-cta-btn" id="navGetBookMobile" aria-label="Get the Witnesses book">Get the Book</button></li>
     </ul>
     <button class="nav-cta" id="navGetBook" aria-label="Get the Witnesses book">Get the Book</button>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
   </nav>
-
-  <!-- ====== HERO ====== -->
-  <header class="hero" role="banner" id="home">
-    <div class="hero-sky" aria-hidden="true"></div>
-    <div id="stars" aria-hidden="true"></div>
-
-    <!-- Desert landscape -->
-    <svg class="hero-land" viewBox="0 0 1440 380" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true">
-      <!-- Distant mesas -->
-      <path
-        d="M0,270 L80,200 L160,225 L260,175 L370,205 L460,158 L560,188 L660,162 L760,192 L870,160 L970,188 L1070,170 L1170,196 L1270,175 L1380,208 L1440,195 L1440,380 L0,380 Z"
-        fill="#3A1508" opacity="0.8" />
-      <!-- Mid ground -->
-      <path
-        d="M0,308 L180,272 L320,298 L480,278 L660,290 L840,274 L1020,292 L1200,276 L1380,295 L1440,285 L1440,380 L0,380 Z"
-        fill="#270E04" />
-      <!-- Ground -->
-      <path d="M0,345 L1440,345 L1440,380 L0,380 Z" fill="#1C0904" />
-
-    </svg>
-
-    <div class="hero-body">
-      <p class="hero-eyebrow">The Creative Home of Alek &amp; Juleah Miller</p>
-      <h1 class="hero-title">Azirona</h1>
-      <p class="hero-subtitle">a <a href="https://boccbo.cc" class="hidden-link">mom</a>/<a
-          href="https://azirona.com/dad" class="hidden-link">dad</a> pact to make games, comics &amp; books</p>
-      <div class="hero-btns">
-        <a href="#blog" class="btn-fill">Read the Blog</a>
-        <a href="#work" class="btn-ghost">Explore Work</a>
-      </div>
-    </div>
-
-    <div class="hero-scroll" aria-hidden="true">
-      Scroll
-      <svg width="14" height="18" viewBox="0 0 14 18" fill="none">
-        <path d="M7 0v14M1 8l6 6 6-6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
-      </svg>
-    </div>
-  </header>
-
-  <!-- ====== FEATURED BOOK ====== -->
-  <section class="book-band" aria-label="Featured book">
-    <div class="book-band-inner">
-      <img src="assets/witnesses.jpg" alt="Witnesses book cover" class="book-cover-img">
-      <div>
-        <p class="book-label">Featured Release</p>
-        <h2 class="book-title">Witnesses: Seven Stories<br>from the Margins of Scripture</h2>
-        <p class="book-author">Alek Miller &nbsp;·&nbsp; Cover &amp; Layout by Juleah Miller</p>
-        <p class="book-desc">Seven short stories exploring the lives of unnamed Biblical figures, servants, sailors,
-          astrologers, and cupbearers, who touched Scripture and became part of the larger story. Faithful to the text,
-          rich in imagination.</p>
-      </div>
-      <div class="book-cta-wrap">
-        <button class="btn-fill" id="bandGetBook" aria-label="Get the Witnesses book">Get the Book →</button>
-      </div>
-    </div>
-  </section>
-
-  <div class="sw-stripe" aria-hidden="true"></div>
-
-  <!-- ====== BLOG ====== -->
-  <section id="blog" class="section" aria-labelledby="blog-heading">
-    <p class="sec-eyebrow">From the Journal</p>
-    <h2 class="sec-title" id="blog-heading">Latest Writing</h2>
-    <div class="sec-rule"></div>
-
-    <div class="blog-layout" id="blogLayout">
-      <!-- Skeleton placeholders -->
-      <div class="post-card-featured">
-        <div class="post-meta">
-          <span class="skel" style="width:60px;height:20px;display:inline-block"></span>
-          <span class="skel" style="width:90px;height:14px;display:inline-block;margin-left:.5rem"></span>
-        </div>
-        <span class="skel" style="height:36px;margin-bottom:.9rem;display:block"></span>
-        <span class="skel" style="height:16px;margin-bottom:.5rem;display:block"></span>
-        <span class="skel" style="height:16px;margin-bottom:.5rem;width:88%;display:block"></span>
-        <span class="skel" style="height:16px;width:72%;display:block"></span>
-      </div>
-      <div class="blog-side">
-        <div class="post-card-mini">
-          <span class="skel" style="height:22px;margin-bottom:.5rem;display:block"></span>
-          <span class="skel" style="height:13px;width:55%;margin-bottom:.8rem;display:block"></span>
-          <span class="skel" style="height:13px;display:block"></span>
-          <span class="skel" style="height:13px;width:80%;margin-top:.4rem;display:block"></span>
-        </div>
-        <div class="post-card-mini">
-          <span class="skel" style="height:22px;margin-bottom:.5rem;display:block"></span>
-          <span class="skel" style="height:13px;width:55%;margin-bottom:.8rem;display:block"></span>
-          <span class="skel" style="height:13px;display:block"></span>
-          <span class="skel" style="height:13px;width:80%;margin-top:.4rem;display:block"></span>
-        </div>
-      </div>
-    </div>
-
-    <div class="blog-footer">
-      <a href="/blog/" class="read-link">All Posts →</a>
-    </div>
-  </section>
-
-  <div class="ornament" aria-hidden="true">✦ &nbsp; ✦ &nbsp; ✦</div>
 
   <!-- ====== PROJECTS ====== -->
   <section id="work" class="projects-wrap" aria-labelledby="work-heading">
@@ -1765,6 +1201,7 @@
 
       <div class="filter-row" role="group" aria-label="Filter projects">
         <button class="filt on" data-f="all">All</button>
+        <button class="filt" data-f="featured">Featured</button>
         <button class="filt" data-f="books">Books</button>
         <button class="filt" data-f="games">Games</button>
         <button class="filt" data-f="tools">Tools</button>
@@ -1788,6 +1225,35 @@
   </section>
 
   <div class="sw-stripe" aria-hidden="true"></div>
+
+  <!-- ====== BLOG ====== -->
+  <section id="blog" class="section" aria-labelledby="blog-heading">
+    <p class="sec-eyebrow">From the Journal</p>
+    <h2 class="sec-title" id="blog-heading">Latest Writing</h2>
+    <div class="sec-rule"></div>
+
+    <ul class="post-list" id="blogLayout">
+      <!-- Skeleton placeholders -->
+      <li class="post-list-item">
+        <span class="skel" style="width:220px;height:22px;display:inline-block"></span>
+        <span class="skel" style="width:90px;height:14px;display:inline-block"></span>
+      </li>
+      <li class="post-list-item">
+        <span class="skel" style="width:180px;height:22px;display:inline-block"></span>
+        <span class="skel" style="width:90px;height:14px;display:inline-block"></span>
+      </li>
+      <li class="post-list-item">
+        <span class="skel" style="width:200px;height:22px;display:inline-block"></span>
+        <span class="skel" style="width:90px;height:14px;display:inline-block"></span>
+      </li>
+    </ul>
+
+    <div class="blog-footer">
+      <a href="/blog/" class="read-link">All Posts →</a>
+    </div>
+  </section>
+
+  <div class="ornament" aria-hidden="true">✦ &nbsp; ✦ &nbsp; ✦</div>
 
   <!-- ====== NEWSLETTER ====== -->
   <section id="newsletter" class="nl-section" aria-labelledby="nl-heading">
@@ -1828,23 +1294,9 @@
   </footer>
 
   <script>
-    /* ====== STARS ====== */
-    (function () {
-      const c = document.getElementById('stars');
-      for (let i = 0; i < 90; i++) {
-        const s = document.createElement('div');
-        s.className = 'star';
-        const sz = Math.random() * 2.2 + 0.4;
-        s.style.cssText = `width:${sz}px;height:${sz}px;top:${Math.random() * 100}%;left:${Math.random() * 100}%;animation-delay:${(Math.random() * 5).toFixed(2)}s;animation-duration:${(2 + Math.random() * 3).toFixed(2)}s`;
-        c.appendChild(s);
-      }
-    })();
-
-    /* ====== SCROLL PROGRESS & NAV ====== */
-    const nav = document.getElementById('nav');
+    /* ====== SCROLL PROGRESS ====== */
     const bar = document.getElementById('scrollBar');
     window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 50);
       const total = document.documentElement.scrollHeight - window.innerHeight;
       bar.style.width = (window.scrollY / total * 100) + '%';
     }, { passive: true });
@@ -1874,9 +1326,9 @@
     /* ====== BLOG ====== */
     async function loadBlog() {
       try {
-        const r = await fetch('/blog/posts.json');
+        const r = await fetch('/blog/posts.json', { cache: 'no-cache' });
         const d = await r.json();
-        const posts = (d.posts || d || []).slice(0, 4);
+        const posts = (d.posts || d || []).slice(0, 5);
         if (!posts.length) return;
 
         const fmt = ds => {
@@ -1894,55 +1346,29 @@
           const title = p.title || (firstLine.startsWith('http') ? 'Untitled' : firstLine) || 'Untitled';
           const bodyStart = raw.indexOf('\n\n');
           const body = bodyStart >= 0 ? raw.slice(bodyStart + 2) : lines.slice(1).join(' ');
-          // Detect YouTube links before stripping
           const hasVideo = ytRegex.test(body); ytRegex.lastIndex = 0;
-          // Strip HTML tags and bare URLs so they don't appear in the excerpt
-          const clean = body
-            .replace(/<[^>]+>/g, '')
-            .replace(ytRegex, '')
-            .replace(/https?:\/\/\S+/g, '')
-            .replace(/\s+/g, ' ').trim();
-          const parts = clean.split(/(?<=[.!?])\s+/);
-          const excerpt = parts.slice(0, 3).join(' ') + (parts.length > 3 ? '\u2026' : '');
-          return { title, excerpt, hasVideo };
+          return { title, hasVideo };
         };
         const badge = a => {
           const j = a && a.toLowerCase().includes('juleah');
           return `<span class="badge ${j ? 'badge-juleah' : 'badge-alek'}">${a || 'Anonymous'}</span>`;
         };
         const postUrl = p => `/blog/?post=${p.id || p.slug || 0}`;
-
-        const [feat, ...rest] = posts;
-        const fp = parsePost(feat);
         const videoBadge = `<span class="video-badge" title="This post contains a video">&#9654; Video</span>`;
-        const sideHtml = rest.slice(0, 2).map((p, i) => {
+
+        document.getElementById('blogLayout').innerHTML = posts.map((p, i) => {
           const pp = parsePost(p);
           return `
-          <article class="post-card-mini reveal" style="transition-delay:${(i + 1) * .1}s"
-                   itemscope itemtype="https://schema.org/BlogPosting">
-            <div class="post-meta">
+          <li class="post-list-item reveal" style="transition-delay:${i * .06}s"
+              itemscope itemtype="https://schema.org/BlogPosting">
+            <a href="${postUrl(p)}" class="post-list-title" itemprop="headline url">${pp.title}</a>
+            <span class="post-list-meta">
               ${badge(p.author)}
               <time class="post-date" datetime="${p.date}" itemprop="datePublished">${fmt(p.date)}</time>
               ${pp.hasVideo ? videoBadge : ''}
-            </div>
-            <a href="${postUrl(p)}" class="post-title-sm" itemprop="headline url">${pp.title}</a>
-            <p class="post-snippet" itemprop="description">${pp.excerpt}</p>
-          </article>`;
+            </span>
+          </li>`;
         }).join('');
-
-        document.getElementById('blogLayout').innerHTML = `
-          <article class="post-card-featured reveal" itemscope itemtype="https://schema.org/BlogPosting">
-            <div class="post-meta">
-              ${badge(feat.author)}
-              <time class="post-date" datetime="${feat.date}" itemprop="datePublished">${fmt(feat.date)}</time>
-              ${fp.hasVideo ? videoBadge : ''}
-            </div>
-            <a href="${postUrl(feat)}" class="post-title-lg" itemprop="headline url">${fp.title}</a>
-            <p class="post-excerpt" itemprop="description">${fp.excerpt}</p>
-            <a href="${postUrl(feat)}" class="read-link" itemprop="url">Continue Reading &rarr;</a>
-          </article>
-          <div class="blog-side">${sideHtml}</div>
-        `;
         document.querySelectorAll('#blogLayout .reveal').forEach(el => ro.observe(el));
       } catch (e) { console.warn('Blog load failed:', e); }
     }
@@ -1950,9 +1376,40 @@
     /* ====== PROJECTS ====== */
     async function loadProjects() {
       try {
-        const r = await fetch('/work-status.json');
+        const r = await fetch('/work-status.json', { cache: 'no-cache' });
         const d = await r.json();
         const projs = d.projects || d || [];
+
+        // Featured projects first, then newest-first by date (completed or estimated)
+        const monthNames = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+        const seasonMonths = { spring: 2, summer: 5, fall: 8, autumn: 8, winter: 11 };
+        const sortDate = p => {
+          const ds = p.completedDate || p.estimatedCompletion;
+          if (!ds) return null;
+          // Precise ISO date (completedDate) parses directly
+          if (/^\d{4}-\d{2}-\d{2}/.test(ds)) {
+            const dt = new Date(ds);
+            return isNaN(dt) ? null : dt;
+          }
+          // Human estimate strings like "October 2026" or "Summer 2026"
+          const yearMatch = ds.match(/\d{4}/);
+          if (!yearMatch) return null;
+          const year = parseInt(yearMatch[0], 10);
+          const lower = ds.toLowerCase();
+          const monthIdx = monthNames.findIndex(m => lower.includes(m));
+          const month = monthIdx >= 0 ? monthIdx
+            : (Object.keys(seasonMonths).find(s => lower.includes(s)) ? seasonMonths[Object.keys(seasonMonths).find(s => lower.includes(s))] : 0);
+          return new Date(year, month, 1);
+        };
+        projs.sort((a, b) => {
+          const fa = a.featured ? 1 : 0, fb = b.featured ? 1 : 0;
+          if (fa !== fb) return fb - fa;
+          const da = sortDate(a), db = sortDate(b);
+          if (da && db) return db - da;
+          if (da) return -1;
+          if (db) return 1;
+          return 0;
+        });
         const grid = document.getElementById('projGrid');
         grid.innerHTML = '';
 
@@ -1980,18 +1437,15 @@
           if (p.url)
             links.push(`<a href="${p.url}" class="proj-link" target="_blank" rel="noopener">View &rarr;</a>`);
 
-          const descText = (p.description || '').split('\n')[0];
-
           const card = document.createElement('article');
-          card.className = 'proj-card reveal proj-clickable';
+          card.className = 'proj-card reveal';
           card.style.transitionDelay = `${i * 0.06}s`;
-          card.style.cursor = 'pointer';
           card.dataset.a = (p.author || '').toLowerCase();
           card.dataset.s = sk;
           card.dataset.t = (p.type || '').toLowerCase();
+          card.dataset.featured = p.featured ? 'yes' : 'no';
           card.setAttribute('itemscope', '');
           card.setAttribute('itemtype', 'https://schema.org/CreativeWork');
-          card.addEventListener('click', () => openPanel(p, sc, sl));
           const fmtDate = ds => {
             if (!ds) return '';
             try { return new Date(ds).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }); }
@@ -2001,14 +1455,31 @@
             : p.estimatedCompletion ? 'Est. ' + p.estimatedCompletion
               : '';
 
+          const hasExpand = !!(p.description || p.extraNotes || links.length);
+
           card.innerHTML = `
             <span class="proj-status ${sc}">${sl}</span>
+            ${p.featured ? `<span class="proj-featured-tag">&#9733; Featured</span>` : ''}
             <h3 class="proj-name" itemprop="name">${p.title || p.name || 'Untitled'}</h3>
             <div class="proj-who" itemprop="author">${p.author || ''}</div>
             ${dateLabel ? `<div class="proj-date">${dateLabel}</div>` : ''}
-            <p class="proj-desc" itemprop="description">${descText}</p>
-            ${links.length ? `<div class="proj-links">${links.join('')}</div>` : ''}
+            ${hasExpand ? `
+            <button class="proj-toggle" aria-expanded="false">More &#8964;</button>
+            <div class="proj-expand">
+              ${p.description ? `<p class="proj-full-desc" itemprop="description">${p.description}</p>` : ''}
+              ${p.extraNotes ? `<p class="proj-notes">${p.extraNotes}</p>` : ''}
+              ${links.length ? `<div class="proj-links">${links.join('')}</div>` : ''}
+            </div>` : ''}
           `;
+
+          const toggleBtn = card.querySelector('.proj-toggle');
+          if (toggleBtn) toggleBtn.addEventListener('click', () => {
+            const open = card.classList.toggle('expanded');
+            toggleBtn.textContent = open ? 'Less ⌄' : 'More ⌄';
+            toggleBtn.setAttribute('aria-expanded', open);
+          });
+          card.querySelectorAll('.proj-link').forEach(a => a.addEventListener('click', e => e.stopPropagation()));
+
           grid.appendChild(card);
           ro.observe(card);
         });
@@ -2026,6 +1497,7 @@
             const comicTypes = ['comic'];
             document.querySelectorAll('.proj-card').forEach(c => {
               if (f === 'all') { c.style.display = ''; return; }
+              if (f === 'featured') { c.style.display = c.dataset.featured === 'yes' ? '' : 'none'; return; }
               if (f === 'alek') { c.style.display = c.dataset.a.includes('alek') ? '' : 'none'; return; }
               if (f === 'juleah') { c.style.display = c.dataset.a.includes('juleah') ? '' : 'none'; return; }
               if (f === 'active') { c.style.display = activeStatuses.includes(c.dataset.s) ? '' : 'none'; return; }
@@ -2044,69 +1516,6 @@
     document.getElementById('yr').textContent = new Date().getFullYear();
     loadBlog();
     loadProjects();
-
-    /* ====== PROJECT PANEL ====== */
-    const overlay = document.getElementById('panelOverlay');
-    const drawer = document.getElementById('panelDrawer');
-
-    function openPanel(p, sc, sl) {
-      const fmtD = ds => {
-        if (!ds) return '';
-        try { return new Date(ds).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }); }
-        catch { return ds; }
-      };
-      const dateStr = p.completedDate ? fmtD(p.completedDate)
-        : p.estimatedCompletion ? 'Est. ' + p.estimatedCompletion : '';
-
-      document.getElementById('panelHeaderMeta').innerHTML = `
-        <div>
-          <span class="panel-status ${sc}">${sl}</span>
-          <div class="panel-title">${p.title || p.name || ''}</div>
-          <div class="panel-author">${p.author || ''}</div>
-          ${p.type ? `<div class="panel-type">${p.type}</div>` : ''}
-          ${dateStr ? `<div class="panel-date">${dateStr}</div>` : ''}
-        </div>`;
-
-      const imgEl = document.getElementById('panelImage');
-      if (p.backgroundImage) {
-        imgEl.innerHTML = `<img src="${p.backgroundImage}" alt="${p.title}" class="panel-img">`;
-      } else {
-        const icons = { book: '📖', game: '🎲', comic: '🎨', 'web game': '🕹️', 'art book': '🖼️', "children's book": '📚', tool: '◈' };
-        imgEl.innerHTML = `<div class="panel-img-placeholder">${icons[p.type] || '✦'}</div>`;
-      }
-
-      const links = [];
-      if (p.type === 'web game' && p.webFile)
-        links.push(`<a href="/${p.webFile}" class="panel-btn panel-btn-fill">Play Game</a>`);
-      if (p.externalLinks && p.externalLinks.length)
-        p.externalLinks.forEach(l =>
-          links.push(`<a href="${l.url}" class="panel-btn panel-btn-fill" target="_blank" rel="noopener">${l.label}</a>`));
-      if (p.url)
-        links.push(`<a href="${p.url}" class="panel-btn panel-btn-ghost" target="_blank" rel="noopener">View Project</a>`);
-
-      document.getElementById('panelBody').innerHTML = `
-        <div class="panel-rule"></div>
-        <p class="panel-desc">${p.description || ''}</p>
-        ${p.extraNotes ? `<p class="panel-notes">${p.extraNotes}</p>` : ''}
-        ${links.length ? `<div class="panel-actions">${links.join('')}</div>` : ''}
-      `;
-
-      overlay.classList.add('open');
-      drawer.classList.add('open');
-      drawer.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-      drawer.scrollTop = 0;
-    }
-
-    function closePanel() {
-      overlay.classList.remove('open');
-      drawer.classList.remove('open');
-      drawer.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    document.getElementById('panelClose').addEventListener('click', closePanel);
-    overlay.addEventListener('click', closePanel);
 
     /* ====== BOOK SHOP PANEL ====== */
     const bshopOverlay = document.getElementById('bshopOverlay');
@@ -2131,10 +1540,14 @@
     document.getElementById('bshopClose').addEventListener('click', closeBookShop);
     bshopOverlay.addEventListener('click', closeBookShop);
     document.getElementById('navGetBook').addEventListener('click', openBookShop);
-    document.getElementById('bandGetBook').addEventListener('click', openBookShop);
+    document.getElementById('navGetBookMobile').addEventListener('click', () => {
+      openBookShop();
+      nl.classList.remove('open');
+      tog.setAttribute('aria-expanded', 'false');
+    });
 
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') { closePanel(); closeBookShop(); }
+      if (e.key === 'Escape') closeBookShop();
     });
 
     /* ====== CHICKEN ====== */

@@ -29,6 +29,7 @@ All creative works live in `work-status.json` under the `"projects"` array. When
   "webFile": "path/to/game/index.html or directory/ — used for Play button on web games",
   "gameType": "e.g. Clicker / Space Builder — for games only, else empty string",
   "collaboration": true | false,
+  "featured": true | false (optional, omit if not featured — shows a "Featured" tag on the project card and includes it under the Featured filter),
   "externalLinks": [
     { "label": "Buy on Gumroad", "url": "https://..." }
   ]

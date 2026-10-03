@@ -540,6 +540,18 @@
       z-index: 1;
     }
 
+    .proj-name-link {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .proj-name-link:hover {
+      color: var(--terra);
+      border-bottom-color: var(--terra);
+    }
+
     .proj-who {
       font-family: 'Oswald', sans-serif;
       font-size: 0.62rem;
@@ -1513,6 +1525,16 @@
           if (p.url)
             links.push(`<a href="${p.url}" class="proj-link" target="_blank" rel="noopener">View &rarr;</a>`);
 
+          // Title link: explicit titleLink, else first external link, else Play page, else url
+          const titleHref = p.titleLink
+            || (p.externalLinks && p.externalLinks.length ? p.externalLinks[0].url : '')
+            || (p.type === 'web game' && p.webFile ? '/' + p.webFile : '')
+            || p.url || '';
+          const titleText = p.title || p.name || 'Untitled';
+          const titleHtml = titleHref
+            ? `<a href="${titleHref}" class="proj-name-link"${/^https?:/.test(titleHref) ? ' target="_blank" rel="noopener"' : ''}>${titleText}</a>`
+            : titleText;
+
           const card = document.createElement('article');
           card.className = 'proj-card reveal';
           card.style.transitionDelay = `${i * 0.06}s`;
@@ -1536,7 +1558,7 @@
           card.innerHTML = `
             <span class="proj-status ${sc}">${sl}</span>
             ${p.featured ? `<span class="proj-featured-tag">&#9733; Featured</span>` : ''}
-            <h3 class="proj-name" itemprop="name">${p.title || p.name || 'Untitled'}</h3>
+            <h3 class="proj-name" itemprop="name">${titleHtml}</h3>
             <div class="proj-who" itemprop="author">${p.author || ''}</div>
             ${dateLabel ? `<div class="proj-date">${dateLabel}</div>` : ''}
             ${hasExpand ? `
@@ -1554,7 +1576,7 @@
             toggleBtn.textContent = open ? 'Less ⌄' : 'More ⌄';
             toggleBtn.setAttribute('aria-expanded', open);
           });
-          card.querySelectorAll('.proj-link').forEach(a => a.addEventListener('click', e => e.stopPropagation()));
+          card.querySelectorAll('.proj-link, .proj-name-link').forEach(a => a.addEventListener('click', e => e.stopPropagation()));
 
           grid.appendChild(card);
           ro.observe(card);

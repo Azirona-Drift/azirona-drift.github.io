@@ -273,6 +273,20 @@
       margin-right: auto;
     }
 
+    /* ====== STORE ====== */
+    .store-list {
+      list-style: none;
+    }
+
+    .store-list-item {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(56, 32, 16, 0.12);
+    }
+
+    .store-list-item:first-child {
+      padding-top: 0;
+    }
+
     /* ====== BLOG ====== */
     .post-list {
       list-style: none;
@@ -1184,6 +1198,7 @@
     <ul class="nav-list" id="navList" role="list">
       <li><a href="#blog">Blog</a></li>
       <li><a href="#work">Work</a></li>
+      <li><a href="#store">Store</a></li>
       <li><a href="#newsletter">Newsletter</a></li>
       <li><a href="mailto:alekmiller@pm.me">Contact</a></li>
       <li class="nav-cta-mobile"><button class="nav-cta-btn" id="navGetBookMobile" aria-label="Get the Witnesses book">Get the Book</button></li>
@@ -1222,6 +1237,32 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <div class="sw-stripe" aria-hidden="true"></div>
+
+  <!-- ====== STORE ====== -->
+  <section id="store" class="section" aria-labelledby="store-heading">
+    <p class="sec-eyebrow">Buy Our Books</p>
+    <h2 class="sec-title" id="store-heading">Bookstore</h2>
+    <div class="sec-rule"></div>
+
+    <script defer src="https://js.lulu.com/lulu-buy.js"></script>
+    <ul class="store-list" id="storeList">
+      <!-- Add one <li class="store-list-item"> per book. Paste the lulu-buy-button tag inside (script tag already loaded above). -->
+      <li class="store-list-item">
+        <lulu-buy-button buy-button-id="0e3d75d5-eb1b-4be2-bb68-e542dcf11ceb" variant="product-showcase"></lulu-buy-button>
+      </li>
+      <li class="store-list-item">
+        <lulu-buy-button buy-button-id="dbe7833f-5381-452f-b7f6-8b3f9922af5e" variant="product-showcase"></lulu-buy-button>
+      </li>
+      <li class="store-list-item">
+        <lulu-buy-button buy-button-id="89177a10-b920-4f04-9d70-3b3ab6990d30" variant="product-showcase"></lulu-buy-button>
+      </li>
+      <li class="store-list-item">
+        <lulu-buy-button buy-button-id="e1c3d89b-a15d-453c-b832-98b29ec847cb" variant="product-showcase"></lulu-buy-button>
+      </li>
+    </ul>
   </section>
 
   <div class="sw-stripe" aria-hidden="true"></div>
@@ -1283,6 +1324,7 @@
         <ul class="footer-nav">
           <li><a href="#blog">Blog</a></li>
           <li><a href="#work">Work</a></li>
+          <li><a href="#store">Store</a></li>
           <li><a href="/blog/feed.xml">RSS</a></li>
           <li><a href="https://azirona.gumroad.com/l/Witnesses" target="_blank" rel="noopener">Gumroad</a></li>
           <li><a href="mailto:alekmiller@pm.me">Contact</a></li>
@@ -1294,6 +1336,40 @@
   </footer>
 
   <script>
+    /* ====== LULU BUTTON THEME ====== */
+    (function () {
+      const theme = {
+        '--lbb-bg-color': '#F3E9D2',
+        '--lbb-border-color': '#DEC9A0',
+        '--lbb-text-color': '#1C0C05',
+        '--lbb-btn-bg-color': '#B85C38',
+        '--lbb-btn-text-color': '#F3E9D2',
+        '--lbb-font-family': "'Lora', serif",
+        '--lbb-btn-border-radius': '0px'
+      };
+      function apply(root) {
+        root.querySelectorAll('.lulu-buy-button').forEach(el => {
+          for (const k in theme) el.style.setProperty(k, theme[k]);
+        });
+      }
+      function watch(btn) {
+        const root = btn.shadowRoot;
+        if (!root) return false;
+        if (!btn._themed) {
+          btn._themed = true;
+          apply(root);
+          new MutationObserver(() => apply(root)).observe(root, { childList: true, subtree: true });
+        }
+        return true;
+      }
+      let tries = 0;
+      const timer = setInterval(() => {
+        const btns = document.querySelectorAll('lulu-buy-button');
+        const done = btns.length && [...btns].every(watch);
+        if (done || ++tries > 60) clearInterval(timer);
+      }, 250);
+    })();
+
     /* ====== SCROLL PROGRESS ====== */
     const bar = document.getElementById('scrollBar');
     window.addEventListener('scroll', () => {

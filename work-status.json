@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-09-27T00:00:00.000Z",
-  "totalProjects": 21,
+  "lastUpdated": "2026-10-03T00:00:00.000Z",
+  "totalProjects": 20,
   "projects": [
     {
       "id": "quak",
@@ -313,29 +313,6 @@
         {
           "label": "Read on Webtoons",
           "url": "https://www.webtoons.com/en/canvas/liminal-b/list?title_no=443514"
-        }
-      ]
-    },
-    {
-      "id": "mfyd6k1rsfuh5lii5pr",
-      "title": "All Things Bright and Beautiful",
-      "author": "Juleah Miller",
-      "status": "completed",
-      "type": "art book",
-      "description": "Furnish your mind with beauty anywhere you go with this portable poem. The poem is by Cecil F. Alexander, but the illustrations are by me. I made this for my son because he loves being sung to, and his big version of the book is too old to travel around with.",
-      "extraNotes": "Painted in Rebelle 5",
-      "backgroundImage": "assets/bright-beautiful.webp",
-      "completedDate": "2020-03-21",
-      "estimatedCompletion": "",
-      "platform": "Gumroad",
-      "webFile": "",
-      "gameType": "",
-      "progress": "",
-      "collaboration": false,
-      "externalLinks": [
-        {
-          "label": "Buy Digital PDF on Gumroad",
-          "url": "https://yourinternetmom.gumroad.com/l/MgoRl"
         }
       ]
     },
